@@ -15,6 +15,10 @@ app.get("/", (req, res) => {
   res.render("pages/registration");
 });
 
+app.get("/login", (req, res) => {
+  res.render("pages/login");
+});
+
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).jsonp("Internal Server Error!");

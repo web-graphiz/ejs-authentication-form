@@ -1,4 +1,8 @@
-const { checkEmail, createUser } = require("../services/user.service");
+const {
+  checkEmail,
+  createUser,
+  validUser,
+} = require("../services/user.service");
 
 const createUserController = async (req, res, next) => {
   try {
@@ -21,4 +25,25 @@ const createUserController = async (req, res, next) => {
   }
 };
 
-module.exports = { createUserController };
+const validUserControl = async (req, res, next) => {
+  try {
+    const userData = {
+      usrEmail: req.body.usrEmail,
+      usrPass: req.body.usrPass,
+    };
+
+    const usr = await validUser(userData);
+
+    if (!usr) {
+      return res.status(401).jsonp("Invalid Email or Password");
+    }
+
+    return res
+      .status(200)
+      .jsonp({ message: "Login Successful!", usrName: usr });
+  } catch (e) {
+    return res.status(409).jsonp(e.message);
+  }
+};
+
+module.exports = { createUserController, validUserControl };

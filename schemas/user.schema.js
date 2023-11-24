@@ -9,4 +9,11 @@ const createUserSchema = Joi.object({
   }),
 });
 
-module.exports = { createUserSchema };
+const validUserSchema = Joi.object({
+  body: Joi.object({
+    usrEmail: Joi.string().email().required(),
+    usrPass: Joi.string().required(),
+  }),
+});
+
+module.exports = { createUserSchema, validUserSchema };
