@@ -26,4 +26,4 @@ You may also see any lint errors in the console.
 Launches the application in product mode.\
 Open [http://localhost:8000](http://localhost:8000) to view it in your browser.
 
-## Download This Application From [https://webgraphiz.com/template/authentication-form-in-nodejs-and-ejs](WebGraphiz.com)
+## Download This Application From [WebGraphiz.com](https://webgraphiz.com/template/authentication-form-in-nodejs-and-ejs)
